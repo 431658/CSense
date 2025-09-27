@@ -4,7 +4,8 @@
 
 ## 使用
 
-请自行编译。我不喜欢脚本小子和伸手党。
+把[这个文件](https://bgithub.xyz/431658/CSense/raw/refs/heads/main/index.global.js)加载到[篡改猴](https://www.tampermonkey.net/)或[暴力猴](https://violentmonkey.github.io/)里即可。
+[CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）
 
 ## FAQ 是真的么？
 
