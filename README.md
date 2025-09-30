@@ -2,22 +2,21 @@
 
 > 一个 **开源的** CCW 安全审计工具。
 
-## 使用
-
-请自行编译。我不喜欢脚本小子和伸手党。
-
-## FAQ 是真的么？
-
-CSense 固然是一时兴起的产物，然而 FAQ 的内容大抵都是真的。
-
-目前 TurboWarp 社区大部分开发者已经意识到了自己的创作成果被剽窃的事实，并对 Gandi IDE 持有反对态度，可喜可贺。
-
-## 关于更新
-
-看我心情（但经历了一个月间发生的各种事情，我应该是没有精力再更新了）。不过如果有人用反制 CSense 脚本来跳脸那我肯定会第一时间做好处理手段的。
-
-**CSense 指出的漏洞不是前端修一修就能解决的。请好好反思自己的后端到底烂成什么样子，能让 CSense 骑在脸上开大。**
-
-## 开源协议
-
-我们采用 AGPL-3.0 作为开源版的协议。事实上我已经不想管滥用了，随它去吧，但是别给我找上麻烦。
+1. 安装浏览器插件[篡改猴](https://www.tampermonkey.net/)或[暴力猴](https://violentmonkey.github.io/)（推荐使用暴力猴）  
+2. 在浏览器插件栏中点击插件图标
+3. 打开管理面板  
+如果你在使用暴力猴，点击设置图标
+![暴力猴](https://github.com/user-attachments/assets/844ce691-7570-47c5-b49a-d3f603ac7797)  
+如果你在使用篡改猴，点击管理面板。
+![篡改猴](https://github.com/user-attachments/assets/92dcb5f6-cc32-4eab-9f28-5c47231be307)  
+5. 安装CSense脚本  
+暴力猴：点击加号，通过地址安装，输入https://bgithub.xyz/431658/CSense/raw/refs/heads/main/index.global.js ，点击完成
+![](https://github.com/user-attachments/assets/c3f0c629-caf3-4acc-9c53-1c276f8fd452)
+![](https://github.com/user-attachments/assets/a45c754b-1bf5-4d96-b864-171b9543df0a)  
+篡改猴：点击实用工具，从url安装，输入https://bgithub.xyz/431658/CSense/raw/refs/heads/main/index.global.js ，点击安装
+![](https://github.com/user-attachments/assets/5fa9524a-5f16-43a4-ae7a-8b3b9d54297b)  
+![](https://github.com/user-attachments/assets/8606fc9e-8b07-4dd3-a0d3-474b7b52d108)
+6. 访问ccw.site  
+如果提示脚本加载太晚，按ctrl+shift+r  
+[CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）  
+笑死，ccw官方玩不起，把我ip封了
