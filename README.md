@@ -17,6 +17,5 @@
 ![](https://github.com/user-attachments/assets/5fa9524a-5f16-43a4-ae7a-8b3b9d54297b)  
 ![](https://github.com/user-attachments/assets/8606fc9e-8b07-4dd3-a0d3-474b7b52d108)
 6. 访问ccw.site  
-如果提示脚本加载太晚，按ctrl+shift+r  
+如果提示脚本加载太慢，按ctrl+shift+r  
 [CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）  
-笑死，ccw官方玩不起，把我ip封了
