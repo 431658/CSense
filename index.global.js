@@ -3970,7 +3970,7 @@ ${Array.from(
     async loadPlugin(url) {
       try {
         const resp = await import(url);
-        await url.initalize({
+        await resp.initalize({
           HomeScene,
           globalState: state_default,
           patch,
