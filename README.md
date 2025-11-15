@@ -23,7 +23,6 @@
 如果提示脚本加载太慢，按ctrl+shift+r
 ## 其他
 [CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）  
-如果共创世界社区管理员威胁你说要封你ip，请不用担心，如果ip被封了重启路由器就行了。  
 ### 我在ccw的所有账号：
 https://www.ccw.site/student/6640a08e7f75c17722e1485a  
 https://www.ccw.site/student/6774dc864b57da1266f7cf37  
