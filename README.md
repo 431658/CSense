@@ -2,9 +2,8 @@
 
 > 一个 **开源的** CCW 安全审计工具。
 
-我们要为CCW民众造福，让人人都可以用上免费且通俗易懂，无门槛的工具！  
-希望大家多多宣传这个好用的工具！  
 ## 使用
+注意：CSense很容易被检测到，建议退出登录再使用，不让会被封号。  
 [用户脚本使用教程](https://github.com/bxsx431658/ccw-tools/tree/main?tab=readme-ov-file#%E7%94%A8%E6%88%B7%E8%84%9A%E6%9C%AC)  
 源代码url：https://bgithub.xyz/431658/CSense/raw/refs/heads/main/index.global.js  
 如果提示脚本加载太慢，按ctrl+shift+r
