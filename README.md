@@ -2,6 +2,9 @@
 
 > 一个 **开源的** CCW 安全审计工具。
 
+> 本教程安装的是由不想上学修改的CSense0.1.5防检测版，如果想要其他版本请加入[CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）。
+
+> 防检测原理：把UI插入shadowRoot
 ## 使用
 1. 安装浏览器插件[篡改猴](https://www.tampermonkey.net/)或[暴力猴](https://violentmonkey.github.io/)（推荐使用暴力猴）  
 2. 在浏览器插件栏中点击插件图标
@@ -18,9 +21,7 @@
 ![](https://github.com/user-attachments/assets/5fa9524a-5f16-43a4-ae7a-8b3b9d54297b)  
 ![](https://github.com/user-attachments/assets/8606fc9e-8b07-4dd3-a0d3-474b7b52d108)
 6. 访问ccw.site  
-如果提示脚本加载太慢，按ctrl+shift+r
-## 其他
-[CSense交流群](https://qm.qq.com/q/SSITmnWOIK)（群号：1060205044）  
+如果提示脚本加载太慢，按ctrl+shift+r  
 ### 我在ccw的所有账号：
 https://www.ccw.site/student/6640a08e7f75c17722e1485a  
 https://www.ccw.site/student/6774dc864b57da1266f7cf37  
