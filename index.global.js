@@ -3,7 +3,7 @@
 // @namespace    CSense
 // @version      0.1.5
 // @license      AGPL-3.0
-// @description  由不想上学修改的 CCW 安全审计工具，可以绕过拦截器
+// @description  由不想上学修改的 CCW 安全审计工具
 // @author       FurryR、不想上学
 // @match        https://www.ccw.site/*
 // @icon         https://m.ccw.site/community/images/logo-ccw.png
@@ -337,86 +337,84 @@
     }
     function pollForBody() {
       const checkInterval = setInterval(() => {
-        const root2 = ensureShadowContainer();
-        if (root2) {
+        const root = ensureShadowContainer();
+        if (root) {
           clearInterval(checkInterval);
         }
       }, 500);
     }
     pollForBody();
+    const reopenButton = document.createElement("button");
+    reopenButton.style.position = "fixed";
+    reopenButton.style.bottom = "20px";
+    reopenButton.style.right = "20px";
+    reopenButton.style.zIndex = String(CSENSE_WINDOW_BASE_ZINDEX);
+    reopenButton.style.padding = "10px";
+    reopenButton.style.color = "white";
+    reopenButton.style.border = "none";
+    reopenButton.style.cursor = "pointer";
+    reopenButton.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
+    reopenButton.style.width = "50px";
+    reopenButton.style.height = "50px";
+    reopenButton.style.borderRadius = "50%";
+    reopenButton.style.background = "linear-gradient(45deg, #005EAC, #404040)";
+    reopenButton.title = "CCW \u8106\u5F31\u6027\u7684\u6839\u672C\u8BC1\u660E\u3002";
+    const image = document.createElement("img");
+    image.src = logo_default;
+    image.alt = "CSense";
+    reopenButton.appendChild(image);
+    let isDraggingButton = false;
+    let hasPositionChanged = false;
+    let buttonOffsetX, buttonOffsetY;
+    reopenButton.addEventListener("mousedown", (e) => {
+      isDraggingButton = true;
+      hasPositionChanged = false;
+      buttonOffsetX = e.clientX - reopenButton.getBoundingClientRect().left;
+      buttonOffsetY = e.clientY - reopenButton.getBoundingClientRect().top;
+      e.preventDefault();
+    });
+    document.addEventListener("mousemove", (e) => {
+      if (isDraggingButton) {
+        delete reopenButton.style.bottom;
+        delete reopenButton.style.right;
+        reopenButton.style.left = e.clientX - buttonOffsetX + "px";
+        reopenButton.style.top = e.clientY - buttonOffsetY + "px";
+        hasPositionChanged = true;
+        e.preventDefault();
+      }
+    });
+    document.addEventListener("mouseup", (e) => {
+      if (isDraggingButton) {
+        if (hasPositionChanged) {
+          isDraggingButton = false;
+        } else {
+          reopenButton.style.display = "none";
+          floatingDiv.style.display = "block";
+          if (reopenButton.style.top) floatingDiv.style.top = reopenButton.style.top;
+          if (reopenButton.style.left) floatingDiv.style.left = reopenButton.style.left;
+          floatingDiv.animate([{ opacity: "0" }, { opacity: "1" }], {
+            duration: 300,
+            easing: "ease-in-out"
+          });
+        }
+        e.preventDefault();
+      }
+    });
+    const rootForButton = ensureShadowContainer();
+    if (rootForButton) {
+      rootForButton.appendChild(reopenButton);
+    } else {
+      const addButtonInterval = setInterval(() => {
+        const r = ensureShadowContainer();
+        if (r) {
+          r.appendChild(reopenButton);
+          clearInterval(addButtonInterval);
+        }
+      }, 500);
+    }
     function closeFloatingDiv() {
       floatingDiv.style.display = "none";
-      createReopenButton();
-    }
-    function createReopenButton() {
-      const reopenButton = document.createElement("button");
-      reopenButton.style.position = "fixed";
-      reopenButton.style.bottom = "20px";
-      reopenButton.style.right = "20px";
-      reopenButton.style.zIndex = String(CSENSE_WINDOW_BASE_ZINDEX);
-      reopenButton.style.padding = "10px";
-      reopenButton.style.color = "white";
-      reopenButton.style.border = "none";
-      reopenButton.style.cursor = "pointer";
-      reopenButton.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
-      reopenButton.style.width = "50px";
-      reopenButton.style.height = "50px";
-      reopenButton.style.borderRadius = "50%";
-      reopenButton.style.background = "linear-gradient(45deg, #005EAC, #404040)";
-      reopenButton.title = "CCW \u8106\u5F31\u6027\u7684\u6839\u672C\u8BC1\u660E\u3002";
-      const image = document.createElement("img");
-      image.src = logo_default;
-      image.alt = "CSense";
-      reopenButton.appendChild(image);
-      let isDraggingButton = false;
-      let hasPositionChanged = false;
-      let buttonOffsetX, buttonOffsetY;
-      reopenButton.addEventListener("mousedown", (e) => {
-        isDraggingButton = true;
-        hasPositionChanged = false;
-        buttonOffsetX = e.clientX - reopenButton.getBoundingClientRect().left;
-        buttonOffsetY = e.clientY - reopenButton.getBoundingClientRect().top;
-        e.preventDefault();
-      });
-      document.addEventListener("mousemove", (e) => {
-        if (isDraggingButton) {
-          delete reopenButton.style.bottom;
-          delete reopenButton.style.right;
-          reopenButton.style.left = e.clientX - buttonOffsetX + "px";
-          reopenButton.style.top = e.clientY - buttonOffsetY + "px";
-          hasPositionChanged = true;
-          e.preventDefault();
-        }
-      });
-      document.addEventListener("mouseup", (e) => {
-        if (isDraggingButton) {
-          if (hasPositionChanged) {
-            isDraggingButton = false;
-          } else {
-            if (shadowRoot && shadowRoot.contains(reopenButton)) {
-              shadowRoot.removeChild(reopenButton);
-            }
-            floatingDiv.style.display = "block";
-            floatingDiv.animate([{ opacity: "0" }, { opacity: "1" }], {
-              duration: 300,
-              easing: "ease-in-out"
-            });
-          }
-          e.preventDefault();
-        }
-      });
-      const root2 = ensureShadowContainer();
-      if (root2) {
-        root2.appendChild(reopenButton);
-      } else {
-        const addInterval = setInterval(() => {
-          const r = ensureShadowContainer();
-          if (r) {
-            r.appendChild(reopenButton);
-            clearInterval(addInterval);
-          }
-        }, 500);
-      }
+      reopenButton.style.display = "block";
     }
     const floatingDiv = document.createElement("div");
     floatingDiv.className = "csense-window";
@@ -515,20 +513,24 @@
     floatingDiv.appendChild(header);
     floatingDiv.appendChild(element);
     closeFloatingDiv();
-    const root = ensureShadowContainer();
-    if (root) {
-      root.appendChild(floatingDiv);
+    const rootForWindow = ensureShadowContainer();
+    if (rootForWindow) {
+      rootForWindow.appendChild(floatingDiv);
     } else {
-      const addInterval = setInterval(() => {
+      const addWindowInterval = setInterval(() => {
         const r = ensureShadowContainer();
         if (r) {
           r.appendChild(floatingDiv);
-          clearInterval(addInterval);
+          clearInterval(addWindowInterval);
         }
       }, 500);
     }
-    return (v) => {
-      title.textContent = v;
+    return {
+      button: reopenButton,
+      window: floatingDiv,
+      setTitle: (v) => {
+        title.textContent = v;
+      }
     };
   }
   function createScrollable() {
@@ -543,7 +545,7 @@
 
   // src/api/vmapi.js
   var Variable = class _Variable {
-    static freezed = /* @__PURE__ */ Symbol("LockedByCSense");
+    static freezed = Symbol("LockedByCSense");
     constructor(target, id) {
       this.variable = target.variables[id];
     }
